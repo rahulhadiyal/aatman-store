@@ -19,4 +19,5 @@ Route::prefix('admin')->name('admin.')->group(function (){
 
     //AdminHomeController
     Route::get('dashboard', [AdminHomeController::class , 'index'])->middleware(Authenticate::class)->name('dashboard');
+    
 });
