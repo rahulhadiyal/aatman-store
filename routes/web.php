@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/*Admin Route*/
+
+Route::prefix('admin')->name('admin.')->group(function (){
+
+    //AdminHomeController
+    Route::get('dashboard', [AdminHomeController::class , 'index'])->middleware(Authenticate::class)->name('dashboard');
 });
