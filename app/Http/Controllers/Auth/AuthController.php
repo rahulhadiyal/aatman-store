@@ -34,9 +34,7 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:5|confirmed',
-            'password_confirmation' => 'required',
         ]);     
-           
         $data = $request->all();
         $check = $this->create($data);
          
@@ -50,7 +48,7 @@ class AuthController extends Controller
      */
     public function create(array $data)
     {
-      return User::create([
+      return Admin::create([
         'name' => $data['name'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
@@ -78,12 +76,11 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/admin/dashboard')
                         ->withSuccess('You have Successfully loggedin');

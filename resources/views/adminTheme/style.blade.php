@@ -1,16 +1,29 @@
-<link rel="apple-touch-icon" href="{{ asset('adminTheme/theme-assets/images/ico/apple-icon-120.png') }}">
-<link rel="shortcut icon" type="image/x-icon" href="{{ asset('adminTheme/theme-assets/images/ico/favicon.ico') }}">
-<link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
-<link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
-<!-- BEGIN VENDOR CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/theme-assets/css/vendors.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/theme-assets/vendors/css/charts/chartist.css') }}">
-<!-- END VENDOR CSS-->
-<!-- BEGIN CHAMELEON  CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/theme-assets/css/app-lite.css') }}">
-<!-- END CHAMELEON  CSS-->
-<!-- BEGIN Page Level CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/theme-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/theme-assets/css/core/colors/palette-gradient.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/theme-assets/css/pages/dashboard-ecommerce.css') }}">
-<!-- END Page Level CSS-->
+<link rel="apple-touch-icon" href="{{ asset('adminTheme/app-assets/images/ico/apple-icon-120.png') }}">
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('adminTheme/app-assets/images/ico/favicon.ico') }}">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- BEGIN: Vendor CSS-->
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/vendors/css/vendors.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/vendors/css/charts/apexcharts.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/vendors/css/extensions/toastr.min.css') }}">
+<!-- END: Vendor CSS-->
+
+<!-- BEGIN: Theme CSS-->
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/bootstrap.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/bootstrap-extended.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/colors.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/components.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/themes/dark-layout.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/themes/bordered-layout.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/themes/semi-dark-layout.css') }}">
+
+<!-- BEGIN: Page CSS-->
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/pages/dashboard-ecommerce.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/plugins/charts/chart-apex.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/plugins/extensions/ext-component-toastr.css') }}">
+<!-- END: Page CSS-->
+
+<!-- BEGIN: Custom CSS-->
+<link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/assets/css/style.css') }}">
+<!-- END: Custom CSS-->

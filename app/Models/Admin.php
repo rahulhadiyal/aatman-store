@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 
 class Admin extends Authenticatable
 {
-    use HasRoles, Notifiable;
+    use Notifiable;
 
     public static $moduleName = 'Admin';
 

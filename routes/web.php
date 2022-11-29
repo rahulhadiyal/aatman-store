@@ -21,12 +21,12 @@ use App\Http\Controllers\Auth\AuthController;
 Route::prefix('admin')->name('admin.')->group(function (){
 
     //AdminHomeController
-    Route::get('dashboard', [AdminHomeController::class , 'index'])/*->middleware(Authenticate::class)*/->name('dashboard');
+    Route::get('dashboard', [AdminHomeController::class , 'index'])->middleware(Authenticate::class)->name('dashboard');
 
     // //AuthController
-    // Route::get('login', [AuthController::class, 'index'])->name('login');
-    // Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-    // Route::get('register', [AuthController::class, 'register'])->name('register');
-    // Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-    // Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('login', [AuthController::class, 'index'])->name('login');
+    Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+    Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
