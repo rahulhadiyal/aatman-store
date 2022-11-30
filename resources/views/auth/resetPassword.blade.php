@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html class="loading semi-dark-layout" lang="en" data-layout="semi-dark-layout" data-textdirection="ltr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Register</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Reset Password</title>
     <link rel="apple-touch-icon" href="{{ asset('adminTheme/app-assets/images/ico/apple-icon-120.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('adminTheme/app-assets/images/ico/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -17,9 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/bootstrap-extended.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/colors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/components.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/themes/dark-layout.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/themes/bordered-layout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/themes/semi-dark-layout.css') }}">
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('adminTheme/app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
@@ -42,10 +44,12 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
             <div class="content-body">
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
-                        <!-- Brand logo--><a class="brand-logo" href="{{ route('admin.login') }}">
+                        <!-- Brand logo--><a class="brand-logo" href="index.html">
                             <svg viewBox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                 <defs>
                                     <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -74,10 +78,10 @@
                         <!-- /Brand logo-->
                         <!-- Left Text-->
                         <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="{{ asset('adminTheme/app-assets/images/pages/register-v2.svg') }}" alt="Register V2" /></div>
+                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="{{ asset('adminTheme/app-assets/images/pages/reset-password-v2.svg') }}" alt="Register V2" /></div>
                         </div>
                         <!-- /Left Text-->
-                        <!-- Register-->
+                        <!-- Reset password-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 @if (session('success'))
@@ -85,42 +89,47 @@
                                         {{ session('success') }}
                                     </div>
                                 @endif
-                                <h2 class="card-title fw-bold mb-1">Welcome to Aatman Store! 👋</h2>
-                                <p class="card-text mb-2">Please sign-up to your account and start the adventure</p>
-                                <form class="auth-register-form mt-2" action="{{ route('admin.register.post') }}" method="POST">
+                                <h2 class="card-title fw-bold mb-1">Reset Password 🔒</h2>
+                                <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
+                                <form class="auth-reset-password-form mt-2" action="{{ route('admin.reset.password.post') }}" method="POST">
                                     @csrf
+
+                                    <input type="hidden" name="token" value="{{ $token }}">
                                     <div class="mb-1">
-                                        <label class="form-label" for="name">Name</label>
-                                        <input class="form-control" id="name" type="text" name="name" placeholder="Enter Your Name" aria-describedby="register-username" autofocus="" tabindex="1" />
+                                        <label class="form-label" for="email">Email</label>
+                                        <input class="form-control" id="email" type="text" name="email" value="{{ $email }}" aria-describedby="login-email" autofocus="" tabindex="1" readonly/>
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="register-email">Email</label>
-                                        <input class="form-control" id="register-email" type="text" name="email" placeholder="Enter Your Email" aria-describedby="register-email" tabindex="2" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="register-password">Password</label>
+                                        <div class="d-flex justify-content-between">
+                                            <label class="form-label" for="password">New Password</label>
+                                        </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="password" tabindex="3" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="reset-password-new" autofocus="" tabindex="1" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
+                                        @if ($errors->has('password'))
+                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                        @endif
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="password_confirmation">Confirm Password</label>
+                                        <div class="d-flex justify-content-between">
+                                            <label class="form-label" for="password_confirmation">Confirm Password</label>
+                                        </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="password_confirmation" type="password" name="password_confirmation" placeholder="············" aria-describedby="password_confirmation" tabindex="3" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            <input class="form-control form-control-merge" id="password_confirmation" type="password" name="password_confirmation" placeholder="············" aria-describedby="reset-password-confirm" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
+                                        @if ($errors->has('password_confirmation'))
+                                            <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                        @endif
                                     </div>
-                                    <div class="mb-1">
-                                        <div class="form-check">
-                                            <input class="form-check-input" id="register-privacy-policy" type="checkbox" tabindex="4" />
-                                            <label class="form-check-label" for="register-privacy-policy">I agree to<a href="#">&nbsp;privacy policy & terms</a></label>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary w-100" tabindex="5">Sign up</button>
+                                    <button class="btn btn-primary w-100" tabindex="3">Set New Password</button>
                                 </form>
-                                <p class="text-center mt-2"><span>Already have an account?</span><a href="{{ route('admin.login') }}"><span>&nbsp;Sign in instead</span></a></p>
+                                <p class="text-center mt-2"><a href="{{ route('admin.login') }}"><i data-feather="chevron-left"></i> Back to login</a></p>
                             </div>
                         </div>
-                        <!-- /Register-->
+                        <!-- /Reset password-->
                     </div>
                 </div>
             </div>
@@ -143,7 +152,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="{{ asset('adminTheme/app-assets/js/scripts/pages/auth-register.js') }}"></script>
+    <script src="{{ asset('adminTheme/app-assets/js/scripts/pages/auth-reset-password.js') }}"></script>
     <!-- END: Page JS-->
 
     <script>

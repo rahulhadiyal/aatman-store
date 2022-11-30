@@ -46,7 +46,7 @@
             <div class="content-body">
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
-                        <!-- Brand logo--><a class="brand-logo" href="#">
+                        <!-- Brand logo--><a class="brand-logo" href="{{ route('admin.login') }}">
                             <svg viewBox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                 <defs>
                                     <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -81,6 +81,11 @@
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
+                                @if (session('success'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
                                 <h2 class="card-title fw-bold mb-1">Welcome to Aatman Store! 👋</h2>
                                 <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
                                 <form class="auth-login-form mt-2" action="{{ route('admin.login.post') }}" method="POST">
@@ -88,13 +93,21 @@
                                     <div class="mb-1">
                                         <label class="form-label" for="email">Email</label>
                                         <input class="form-control" id="email" type="text" name="email" placeholder="enter your email" aria-describedby="login-email" autofocus="" tabindex="1" />
+                                        @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
                                     </div>
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="password">Password</label><a href="#"><small>Forgot Password?</small></a>
+                                            <label class="form-label" for="password">Password</label>
+                                            <a href="{{ route('admin.forget.password.get') }}"><small>Forgot Password?</small></a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            <input class="form-control form-control-merge" id="password" type="password" name="password" placeholder="············" aria-describedby="login-password" tabindex="2" />
+                                            <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                     <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
