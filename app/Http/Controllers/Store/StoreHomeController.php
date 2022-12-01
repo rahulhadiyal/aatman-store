@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Store;
 
-use App\Http\Controllers\Controller/Store/StoreController;
+use App\Http\Controllers\Store\StoreController;
 use Illuminate\Http\Request;
 
 class StoreHomeController extends StoreController

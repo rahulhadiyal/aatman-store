@@ -19,7 +19,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*Admin Route*/
 
-Route::prefix('admin')->name('admin.')->group(function (){
+Route::name('admin.')->group(function (){
 
     //AdminHomeController
     Route::get('dashboard', [AdminHomeController::class , 'index'])->middleware(Authenticate::class)->name('dashboard');

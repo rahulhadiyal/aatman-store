@@ -14,8 +14,8 @@ use App\Http\Controllers\Store\StoreHomeController;
 |
 */
 
-Route::prefix('store')->name('store.')->group(function (){
+Route::name('store.')->group(function (){
 
-    Route::get('/', [StoreHomeController::class, 'index'])->name('');
+    Route::get('/', [StoreHomeController::class, 'index'])->name('home');
 
 });
